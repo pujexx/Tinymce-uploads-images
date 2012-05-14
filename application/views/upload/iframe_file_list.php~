@@ -58,7 +58,7 @@
 	
 	<a class='toggle describe-toggle-on' data="<?php echo $gallery->id_attach;?>" href='#'>Show</a>
 	<a class='toggle describe-toggle-off' href='#'>Hide</a>
-	<input type='hidden' id="id-image-<?php echo $gallery->id_attach?>" value="<?php echo $gallery->id_attach; ?>" />
+	<input type='hidden' id="id-image-<?php echo $gallery->id_attach?>" value='<?php echo $gallery->id_attach; ?>' />
 	<div class='filename new'><span class='title'><?php echo $gallery->name;?></span></div>
 	<table class="slidetoggle describe startclosed" style="display: none; " id="slidetoggle-<?php echo $gallery->id_attach;?>">
         <thead class="media-item-info" id="media-head-5">

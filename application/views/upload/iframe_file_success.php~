@@ -121,9 +121,9 @@
                     data : data_kirim,
                     type : 'POST',
                     success : function (msg){
-                   	
-                        window.parent.tinyMCE.execCommand('mceInsertContent',false,'<img src="<?php echo base_url(); ?>uploads/<?php echo $upload_data['file_name'] ?>" class="'+align_m+'" width="'+size_m+'"/>');
-                      parent.$.fancybox.close();
+                   	alert(msg);
+                        //window.parent.tinyMCE.execCommand('mceInsertContent',false,'<img src="<?php echo base_url(); ?>uploads/<?php echo $upload_data['file_name'] ?>" class="'+align_m+'" width="'+size_m+'"/>');
+                      //  parent.$.fancybox.close();
                        
                     }
 

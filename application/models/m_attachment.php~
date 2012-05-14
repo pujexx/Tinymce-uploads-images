@@ -18,7 +18,6 @@ class M_Attachment extends CI_Model {
         $this->db->where('MONTH(date)',$month);
         $this->db->where('status',$status);
         $this->db->from($this->table);
-        $this->db->order_by('id_attach','desc');
         $result = $this->db->get();
         if ($result->num_rows() > 0):
             return $result->result();
