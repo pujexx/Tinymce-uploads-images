@@ -49,7 +49,7 @@
 <?php if(count($gallerys)>0):?>
 <?php foreach ($gallerys as $gallery) : ?>
 
-<div id='media-item-6' class='media-item child-of-4 preloaded'>
+<div id='media-item-<?php echo $gallery->id_attach?>' class='media-item child-of-4 preloaded'>
 <div class='progress hidden'>
 	<div class='bar'></div>
 </div>
@@ -109,7 +109,7 @@
         </tr>
         <tr class="submit"><td></td><td class="savesend">
             <button class="insert-image" data="<?php echo $gallery->id_attach?>" class="button" >Insert into Post</button> 
-           <a href="#" class="del-link" >Delete</a>
+           <a href="#" class="del-link" id="<?php echo $gallery->id_attach?>" >Delete</a>
 
         </tr>
     </tbody>
@@ -134,7 +134,7 @@ $(document).ready(function(){
 
 		$('#slidetoggle-'+id).slideToggle('slow');
 
-
+        document.getElementById("media-item"+id).scrollIntoView();
 
 	});
 
@@ -198,6 +198,22 @@ $(document).ready(function(){
                 })
                // alert(name+alternate+description+caption);
             }); 
+        $('.del-link').click(function(){
+
+            id = $(this).attr('id');
+            data = ({insert_id:id});
+            $.ajax({
+                url : '<?php echo site_url("uploads/deleted")?>',
+                data : data,
+                type : 'post',
+                success : function(msg){
+                        
+                      $("#media-item-"+id).hide('slow');
+                }
+            });
+
+        })
+        
 
 })
 

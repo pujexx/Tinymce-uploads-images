@@ -28,6 +28,7 @@ class M_Attachment extends CI_Model {
     function get_year_month(){
         $this->db->select('MONTH(date) as month, YEAR(date) as year');
         $this->db->from($this->table);
+        $this->db->where('status','published');
         $this->db->group_by('YEAR(date),MONTH(date)');
         $this->db->order_by('MONTH(date)','desc');
         return $this->db->get();

@@ -86,6 +86,15 @@ class Uploads extends CI_Controller{
 
             $this->load->view('upload/iframe_file_list',$data);
 	}
+    public function deleted(){
+       
+        $this->form_validation->set_rules('insert_id', 'insert_id', 'required');
+        if($this->form_validation->run()  ==true):
+            $id = $this->input->post('insert_id');
+            $this->m_attachment->edit_attachment($id,array('status'=>'deleted'));
+        endif;
+
+    }
 
 } 
  ?>
